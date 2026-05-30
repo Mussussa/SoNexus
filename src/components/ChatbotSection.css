@@ -1,0 +1,173 @@
+/* ==========================================================================
+   1. ESTILOS GERAIS E ANIMAÇÕES
+   ========================================================================== */
+.text-pink {
+  color: #ff007f;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05rem;
+}
+
+/* Badge de Status Pulsante */
+.badge-online {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #00ff66;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0.4rem #00ff66;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 0.2rem rgba(0, 255, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
+}
+
+/* ==========================================================================
+   2. ESTRUTURA FLUIDA DA CAIXA DO ROBÔ
+   ========================================================================== */
+.bot-display-box {
+  background: rgba(255, 0, 127, 0.03);
+  border: 0.06rem dashed rgba(255, 0, 127, 0.2);
+  width: 100%;
+  padding: 0.4rem !important;
+}
+
+.bot-avatar-container {
+  width: clamp(1.8rem, 4vw, 2.4rem);
+  height: clamp(1.8rem, 4vw, 2.4rem);
+  background: linear-gradient(45deg, #ff007f, #00b0ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bot-icon-pulse {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #060a13;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-0.15rem); }
+  100% { transform: translateY(0); }
+}
+
+.bot-bubble-msg {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 0.18rem solid #ff007f;
+  padding: 0.3rem 0.5rem !important;
+}
+
+.bot-bubble-msg span {
+  font-size: clamp(0.65rem, 1.5vw, 0.78rem);
+  line-height: 1.2;
+  display: block;
+  white-space: normal;
+} delta;
+}
+
+/* ==========================================================================
+   3. MINI CARDS TOTALMENTE ADAPTÁVEIS (Fontes Fluidas)
+   ========================================================================== */
+.feature-mini-card {
+  background: rgba(240, 248, 255, 0.01);
+  border: 0.06rem solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.25s ease, transform 0.2s ease;
+  height: 100%;
+  width: 100%;
+  padding: 0.4rem !important;
+}
+
+.feature-mini-card:hover {
+  border-color: rgba(255, 0, 127, 0.4);
+  transform: translateX(0.12rem);
+}
+
+.feat-icon-box {
+  width: 1.5rem;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  border-radius: 0.3rem;
+  background: rgba(255, 0, 127, 0.1);
+  color: #ff007f;
+  font-size: 0.85rem;
+}
+
+.miniature-title {
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+.miniature-desc {
+  font-size: clamp(0.6rem, 1.2vw, 0.72rem);
+  line-height: 1.25;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+   4. SEGREDO: RESPONSIVIDADE SEM SCROLL VISÍVEL (Anti-Quebra)
+   ========================================================================== */
+.chatbot-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.chatbot-features-grid {
+  flex-grow: 1;
+  min-height: 0;
+  
+  /* Permite o scroll técnico em telas mini para não quebrar, mas oculta a barra */
+  overflow-y: auto; 
+  scrollbar-width: none; /* Oculta no Firefox */
+  -ms-overflow-style: none; /* Oculta no IE/Edge */
+}
+
+/* Oculta a barra de scroll no Chrome, Safari e Opera */
+.chatbot-features-grid::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.chatbot-features-grid .row {
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
+}
+
+.chatbot-features-grid .row > [class*="col-"] {
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+/* ==========================================================================
+   5. AJUSTES DINÂMICOS PARA TELAS LARGAS (Desktop)
+   ========================================================================== */
+@media (min-width: 992px) {
+  .bot-avatar-container {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .bot-icon-pulse {
+    font-size: 1.4rem;
+  }
+  .feat-icon-box {
+    width: 1.8rem;
+    height: 1.8rem;
+    min-width: 1.8rem;
+    font-size: 1rem;
+  }
+  .feature-mini-card {
+    padding: 0.55rem !important;
+  }
+}

@@ -1,0 +1,245 @@
+/* App.css */
+
+/* ==========================================================================
+   1. O RESET & CONFIGURAÇÃO GLOBAL (Blindagem de Box-Sizing)
+   ========================================================================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header-section {
+  position: sticky;
+  top: 0;
+  z-index: 1030; /* Valor padrão do z-index do Bootstrap para fixed/sticky */
+  background-color: #111; /* Garante que o conteúdo de baixo não apareça por trás do texto do menu */
+}
+
+/* O contentor base substitui a classe `.corpo` antiga e unifica o Grid */
+.site-grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: Uma coluna única vertical */
+  gap: 20px;
+  padding: 2%;
+  background-color: #0b0f19; /* Mantido o Dark Mode do plano */
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1400px; /* Limita o tamanho máximo estrutural em PCs gigantes */
+  margin: 0 auto; /* Centraliza o site no ecrã */
+}
+
+/* ==========================================================================
+   2. ESTRUTURAÇÃO DAS SEÇÕES (Força componentes a ocupar 100% de largura/altura)
+   ========================================================================== */
+.grid-section {
+  border: 3px double #00f0ff; /* Borda sólida ciano neon para delimitação */
+  background-color: rgba(0, 240, 255, 0.05); /* Fundo sutil para contraste */
+  color: #ffffff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Garante blindagem total contra quebras e transbordo de componentes */
+
+  /* O SEGREDO DO 100%: Força os blocos a esticarem e preencherem toda a área */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch; /* Estica os componentes internos horizontalmente até 100% */
+}
+
+/* Seleciona o componente React ou elemento filho direto e força 100% de altura e largura */
+.grid-section > * {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   3. DEFINIÇÃO DE ALTURAS FIXAS RESPONSIVAS (Mobile - Base Padrão)
+   ========================================================================== */
+.header-section { 
+  height: 15vh; 
+  width: 100%;
+}
+
+.hero-section { 
+  height: 40vh; 
+  border-color: transparent; 
+  background-color: rgba(240, 248, 255, 0.05);
+  
+  /* Força a centralização absoluta de qualquer elemento interno */
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.o-que-fazemos-section { 
+  min-height: 35vh; 
+  border-color:transparent; 
+  border-radius: 0%;
+}
+
+.servicos-section { 
+  height: 50vh; 
+ 
+    border: 4px dashed #ff007f; /* Destaque rosa neon para a seção especial */
+   border-radius: 10%
+}
+
+.chatbot-section { 
+  height: 40vh; 
+  border: 4px dotted #ff007f; /* Destaque rosa neon para a seção especial */
+   border-radius: 10%
+}
+
+.metodologia-section { 
+  height: 40vh; 
+    border: 4px dashed #ece8e8 !important; /* Destaque rosa neon para a seção especial */
+   border-radius: 10%
+}
+
+/* ==========================================================================
+   ATUALIZADO: Secções com Efeito de Sombra e Brilho Neon Fluido
+   ========================================================================== */
+
+.diferenciais-section { 
+  height: 50vh; 
+  border: 1px solid rgba(236, 232, 232, 0.2); /* Borda fina quase invisível */
+  box-shadow: 0 0 15px rgba(236, 232, 232, 0.15); /* Sombra com brilho sutil */
+  background-color: rgba(236, 232, 232, 0.02); /* Fundo bem suave */
+}
+
+/* Efeito dinâmico: quando o utilizador passa o rato, o painel ganha vida */
+.diferenciais-section:hover {
+  border-color: rgba(236, 232, 232, 0.6);
+  box-shadow: 0 0 25px rgba(236, 232, 232, 0.35);
+}
+
+.footer-section { 
+  height: 40vh; 
+  border: 1px solid rgba(236, 232, 232, 0.15);
+  box-shadow: 0 0 20px rgba(236, 232, 232, 0.1); /* Brilho mais focado para a base do site */
+  background-color: rgba(6, 10, 19, 0.8); /* Fundo ligeiramente mais escuro para contraste */
+}
+
+/* Força imagens, carrosséis ou elementos internos a adaptarem-se perfeitamente às alturas */
+.carousel-inner, .carousel-item, .carousel-item img, .grid-section img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   4. MEDIA QUERY: SMARTPHONES LARGOS / PEQUENOS TABLETS (min-width: 356px)
+   ========================================================================== */
+@media (min-width: 356px) {
+  .hero-section {
+    height: 50vh;
+  }
+  .o-que-fazemos-section {
+    min-height: auto;
+    height: auto;
+  }
+  .servicos-section {
+    height: auto;
+    min-height: 45vh;
+  }
+  .metodologia-section {
+    height: auto;
+    min-height: 40vh;
+  }
+  .diferenciais-section {
+    height: auto;
+    min-height: 40vh;
+  }
+  
+}
+
+
+/* ==========================================================================
+   5. MEDIA QUERY: TABLETS (min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .hero-section {
+    height: 70vh;
+  }
+  .o-que-fazemos-section {
+    min-height: 50vh;
+    height: 70vh;
+  }
+  .servicos-section {
+    height: auto;
+    min-height: 50vh;
+  }
+  .metodologia-section {
+    height: auto;
+    min-height: 40vh;
+  }
+  .diferenciais-section {
+    height: auto;
+    min-height: 40vh;
+  }
+}
+
+
+/* ==========================================================================
+   6. MEDIA QUERY: DESKTOP / LAPTOPS (min-width: 1024px) - Ativação do Grid Complexo
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .site-grid-container {
+    grid-template-columns: repeat(12, 1fr); /* Ativa a malha industrial de 12 colunas */
+    grid-auto-rows: minmax(auto, max-content);
+  }
+
+  /* Distribuição de colunas ocupadas por cada bloco no Desktop */
+  .header-section {
+    grid-column: span 12;
+    height: 70px; /* Menu em PC fixado em pixels para segurança */
+  }
+
+  .hero-section {
+    grid-column: span 12;
+    height: 55vh;
+    border-radius: 8px;
+  }
+
+  .o-que-fazemos-section {
+    grid-column: span 12;
+    min-height: 60vh;
+    height: 65vh;
+  }
+
+  /* Layout Lado a Lado: Serviços e Chatbot dividem a mesma linha perfeitamente */
+  .servicos-section {
+    grid-column: span 7;
+    height: auto;
+    min-height: 50vh;
+  }
+
+  .chatbot-section {
+    grid-column: span 5;
+    height: auto;
+    min-height: 50vh;
+   
+  }
+
+  .metodologia-section {
+    grid-column: span 12;
+    height: auto;
+    min-height: 40vh;
+  }
+
+  .diferenciais-section {
+    grid-column: span 12;
+    height: auto;
+    min-height: 45vh;
+  }
+
+  .footer-section {
+    grid-column: span 12;
+    height: auto;
+    min-height: 40vh;
+  }
+}

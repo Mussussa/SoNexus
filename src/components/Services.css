@@ -1,0 +1,166 @@
+.services-section {
+  background-color: #060a13; /* Fundo escuro profundo */
+}
+
+.section-title {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.accent-line {
+  width: 55px;
+  height: 3px;
+  background: linear-gradient(45deg, #00b0ff, #00e5ff);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   CORRIGIDO: CONTROLADOR DO SCROLL INTERNO (Aumentado para não cortar)
+   ========================================================================== */
+.services-scroll-container {
+  /* Aumentada para dar mais área de visualização */
+  max-height: 50vh; 
+  overflow-y: auto;
+  
+  /* Preenchimento inferior maior para o final da lista não encostar na borda */
+  padding-bottom: 25px; 
+  
+  padding-right: 6px;
+}
+
+/* Estilização fina da Scrollbar */
+.services-scroll-container::-webkit-scrollbar {
+  width: 5px;
+}
+.services-scroll-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+.services-scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00b0ff, #00e5ff);
+  border-radius: 10px;
+}
+
+/* Estrutura Base do Card (Glassmorphism compacto) */
+.service-card {
+  background: rgba(240, 248, 255, 0.02);
+  border: 1px solid rgba(0, 229, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s ease-in-out;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 6px 15px rgba(0, 229, 255, 0.12);
+}
+
+/* CORRIGIDO: Alinhamento Perfeitamente Centralizado */
+.card-flex-container {
+  display: flex;
+  flex-direction: column; /* Força ícone em cima, texto em baixo */
+  align-items: center;    /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  gap: 12px;
+  text-align: center;      /* Garante que o texto de várias linhas fique centralizado */
+  height: 100%;
+}
+
+/* Ícones dinâmicos */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  min-width: 48px; 
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  color: #00e5ff;
+  font-size: 1.4rem;
+  transition: all 0.25s ease;
+}
+
+.service-card:hover .icon-box {
+  background: linear-gradient(45deg, #00b0ff, #00e5ff);
+  color: #060a13;
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-card-title {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.service-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   REGRA DE INTERPOLAÇÃO: APARTIR DE 500px (Reduz Fontes para 2 Colunas)
+   ========================================================================= */
+@media (min-width: 500px) and (max-width: 991px) {
+  .service-card {
+    padding: 12px !important; /* Compacta o preenchimento interno */
+  }
+  .services-scroll-container {
+    max-height: 50vh; /* Ainda maior no computador para melhor visualização */
+    padding-right: 10px;
+  }
+  .icon-box {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 1.2rem;
+  }
+  .card-flex-container {
+    gap: 10px;
+  }
+  .service-card-title {
+    font-size: 0.88rem;
+  }
+  .service-card-desc {
+    font-size: 0.72rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita em 2 linhas de texto no modo de 2 colunas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ==========================================================================
+   TRANSIÇÃO PARA COMPUTADORES (Telas Maiores)
+   ========================================================================= */
+@media (min-width: 992px) {
+    .services-scroll-container .row > [class*="col-"] {
+    /* No PC, impede que um único card sozinho ocupe a linha toda e fique gigante, 
+       mas permite que 2 cards dividam a linha de 3 perfeitamente (50% para cada). */
+    flex-basis: 50%; 
+  }
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .services-scroll-container {
+    max-height: 50vh; /* Ainda maior no computador para melhor visualização */
+    padding-right: 10px;
+  }
+
+  .icon-box {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    font-size: 1.7rem;
+  }
+
+  .service-card-title {
+    font-size: 1.2rem;
+  }
+
+  .service-card-desc {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,96 @@
+/* Ajuste do contentor principal do carrossel para ocupar o espaço total (40vh conforme indicado) */
+#sonexusHeroCarousel {
+  height: 40vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Força o interior do carrossel a ocupar a altura total configurada */
+.heroo, 
+.carousel-inner, 
+.carousel-item {
+  height: 100%;
+  width: 100%;
+}
+
+h4{
+    color: #fff !important;
+}
+
+/* Ajuste e comportamento da imagem de fundo para preencher todo o espaço sem distorcer */
+.hero-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  align-items: center;
+}
+
+/* Centralização perfeita do conteúdo sobre o slide */
+.carousel-caption {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Efeito de Vidro Fosco (Glassmorphism) alinhado ao plano Dark Mode */
+.caption-overlay {
+  
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(8px);
+  /* border: 1px solid rgba(0, 229, 255, 0.2); */
+  max-width: 800px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Estilização dos Textos com a identidade SoNexus */
+.brand-title {
+  color: #00e5ff; /* Azul Ciano Neon */
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.section-title {
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.subtitle-text {
+  color: #e0e0e0;
+}
+
+/* Botão Gradiente Premium Ciano com efeito Glow (Hover) */
+.btn-sonexus-premium {
+  background: linear-gradient(45deg, #00b0ff, #00e5ff);
+  color: #0a0f1e !important;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+}
+
+.btn-sonexus-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+  background: linear-gradient(45deg, #00e5ff, #00b0ff);
+}
+
+/* Botão dedicado para o canal oficial do WhatsApp */
+.btn-sonexus-whatsapp {
+  background-color: #25d366;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  transform: scale(1.1); /* Substituído 'scale' por 'transform' para maior compatibilidade */
+}
+
+.btn-sonexus-whatsapp:hover {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+  background-color: #20ba5a;
+}
